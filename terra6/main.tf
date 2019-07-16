@@ -20,7 +20,7 @@ resource "aws_instance" "myvm" {
     }
     ami = "ami-0adcddd3324248c4c"
     instance_type = "t2.micro"
-    key_name = "jdoshi-bubba"
+    key_name = "jdoshi1-tf"
     security_groups = ["default"]
     provisioner "remote-exec" {
         inline = ["touch hello.sh"]
@@ -28,7 +28,7 @@ resource "aws_instance" "myvm" {
             host = "${aws_instance.myvm.public_ip}"
             type = "ssh"
             user = "ec2-user"
-            private_key = "${file("/home/ec2-user/environment/terraform-learnings/jdoshi-bubba.pem")}"
+            private_key = "${file("/Users/j.doshi/.ssh/jdoshi1-tf")}"
         }
     }
 }
